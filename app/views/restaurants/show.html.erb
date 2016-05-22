@@ -1,10 +1,18 @@
 <% if @restaurant %>
+  <%= link_to 'return to restaurant list', restaurants_path %>
   <h1><%= @restaurant.name %></h1>
   <p><%= @restaurant.street %></p>
   <p><%= @restaurant.city %></p>
   <p><%= @restaurant.state %></p>
   <p><%= @restaurant.country %></p>
   <p><%= @restaurant.postal_code %></p>
+  <p><%= @restaurant.neighborhood.name %></p>
+
+  <ul>
+    <% @restaurant.categories.each do |category| %>
+    <li><%= category.name %></li>
+    <% end %>
+  </ul>
 
 <% else %>
 
